@@ -133,7 +133,7 @@ pipeline {
         }
       }
     }
-    stage('Run functional check in dev') {
+  /*stage('Run functional check in dev') {
       when {
         expression {
           return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
@@ -162,7 +162,7 @@ pipeline {
         }
       }
     }
-    stage('Mark artifact for staging namespace') {
+  */stage('Mark artifact for staging namespace') {
       when {
         expression {
           return env.BRANCH_NAME ==~ 'release/.*'
