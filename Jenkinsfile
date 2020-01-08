@@ -24,7 +24,7 @@ pipeline {
     TAG_DEV = "${env.TAG}-${env.VERSION}-${env.BUILD_NUMBER}"
     TAG_STAGING = "${env.TAG}-${env.VERSION}"
   }
-  stages {
+  /*stages {
     stage('Maven build') {
       steps {
         checkout scm
@@ -33,7 +33,7 @@ pipeline {
         }
       }
     }
-    stage('Docker build') {
+  */stage('Docker build') {
       when {
         expression {
           return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
