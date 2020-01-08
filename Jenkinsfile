@@ -24,8 +24,8 @@ pipeline {
     TAG_DEV = "${env.TAG}-${env.VERSION}-${env.BUILD_NUMBER}"
     TAG_STAGING = "${env.TAG}-${env.VERSION}"
   }
-  /*stages {
-    stage('Maven build') {
+  stages {
+  /*stage('Maven build') {
       steps {
         checkout scm
         container('maven') {
