@@ -6,7 +6,7 @@ def tagMatchRules = [
       [meType: 'SERVICE']
     ],
     tags : [
-      [context: 'CONTEXTLESS', key: 'app', value: 'shipping'],
+      [context: 'CONTEXTLESS', key: 'app', value: 'edge-router'],
       [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
     ]
   ]
@@ -17,7 +17,7 @@ pipeline {
     label 'maven'
   }
   environment {
-    APP_NAME = "shipping"
+    APP_NAME = "edge-router"
     ARTEFACT_ID = "sockshop/" + "${env.APP_NAME}"
     VERSION = readFile('version').trim()
     TAG = "${env.DOCKER_REGISTRY_URL}:5000/library/${env.ARTEFACT_ID}"
@@ -65,8 +65,8 @@ pipeline {
       }
       steps {
         container('kubectl') {
-          sh "sed -i 's#image: .*#image: ${env.TAG_DEV}#' manifest/shipping.yml"
-          sh "kubectl -n dev apply -f manifest/shipping.yml"
+          sh "sed -i 's#image: .*#image: ${env.TAG_DEV}#' manifest/edge-router.yml"
+          sh "kubectl -n dev apply -f manifest/edge-router.yml"
         }
       }
     }
