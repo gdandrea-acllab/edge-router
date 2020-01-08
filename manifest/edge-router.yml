@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: edge-router
-        image: traefik:camembert-alpine
+        image: dynatracesockshop/edge-router:0.5.0
         env: 
         - name: DT_TAGS
           value: "product=sockshop"
